@@ -1,0 +1,5 @@
+cargo new poc_algorithm_builder_rust_quick_sort_generated_program_payload
+cd poc_algorithm_builder_rust_quick_sort_generated_program_payload
+copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs src\main.rs
+cargo build
+cargo run

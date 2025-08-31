@@ -1,0 +1,75 @@
+Certainly! Below is an efficient and well-documented implementation of the **Quick Sort** algorithm in Rust. The program sorts a vector of integers in-place.
+
+You can copy, compile, and run it with `rustc quick_sort.rs && ./quick_sort`.
+
+```rust
+// quick_sort.rs
+/// An efficient implementation of the Quick Sort algorithm in Rust.
+/// This sorts a vector of i32s in-place using Lomuto partition scheme.
+
+fn quick_sort(arr: &mut [i32]) {
+    let len = arr.len();
+    if len <= 1 {
+        // Base case: already sorted
+        return;
+    }
+    // Partition the array
+    let pivot_index = partition(arr);
+    // Recursively sort the left and right partitions
+    quick_sort(&mut arr[0..pivot_index]);
+    quick_sort(&mut arr[pivot_index + 1..]);
+}
+
+/// Partition the slice using the last element as the pivot.
+/// Returns the index of the pivot after partitioning.
+fn partition(arr: &mut [i32]) -> usize {
+    let len = arr.len();
+    let pivot_index = len - 1;
+    let pivot = arr[pivot_index];
+    // i: index of smaller element
+    let mut i = 0;
+    for j in 0..pivot_index {
+        if arr[j] <= pivot {
+            arr.swap(i, j);
+            i += 1;
+        }
+    }
+    // Place the pivot after all smaller elements
+    arr.swap(i, pivot_index);
+    i
+}
+
+fn main() {
+    // Example usage
+    let mut numbers = vec![34, 7, 23, 32, 5, 62, 32, 7, 2, 1];
+    println!("Before sorting: {:?}", numbers);
+    quick_sort(&mut numbers);
+    println!("After sorting:  {:?}", numbers);
+}
+
+```
+
+### How it works
+
+1. **quick_sort** recursively sorts sub-slices of the array.
+2. **partition** arranges elements such that all elements <= pivot are to its left, and > pivot are to its right.
+3. The main function demonstrates usage.
+
+### Compile and Run
+
+Save as `quick_sort.rs`, then:
+
+```sh
+rustc quick_sort.rs
+./quick_sort
+```
+
+**Output:**
+```
+Before sorting: [34, 7, 23, 32, 5, 62, 32, 7, 2, 1]
+After sorting:  [1, 2, 5, 7, 7, 23, 32, 32, 34, 62]
+```
+
+---
+
+This implementation is efficient (in-place, O(n log n) on average), idiomatic, and easy to understand!
