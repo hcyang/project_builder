@@ -1,0 +1,20 @@
+(.venv) C:\git\project_builder\poc\algorithm_builder\quick_sort\generated>.\poc_algorithm_builder_rust_quick_sort_generated_program_payload_extracted_project_script.cmd
+
+(.venv) C:\git\project_builder\poc\algorithm_builder\quick_sort\generated>cargo new poc_algorithm_builder_rust_quick_sort_generated_program_payload
+    Creating binary (application) `poc_algorithm_builder_rust_quick_sort_generated_program_payload` package
+note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+(.venv) C:\git\project_builder\poc\algorithm_builder\quick_sort\generated>cd poc_algorithm_builder_rust_quick_sort_generated_program_payload
+
+(.venv) C:\git\project_builder\poc\algorithm_builder\quick_sort\generated\poc_algorithm_builder_rust_quick_sort_generated_program_payload>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs src\main.rs
+        1 file(s) copied.
+
+(.venv) C:\git\project_builder\poc\algorithm_builder\quick_sort\generated\poc_algorithm_builder_rust_quick_sort_generated_program_payload>cargo build
+   Compiling poc_algorithm_builder_rust_quick_sort_generated_program_payload v0.1.0 (C:\git\project_builder\poc\algorithm_builder\quick_sort\generated\poc_algorithm_builder_rust_quick_sort_generated_program_payload)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.12s
+
+(.venv) C:\git\project_builder\poc\algorithm_builder\quick_sort\generated\poc_algorithm_builder_rust_quick_sort_generated_program_payload>cargo run
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `target\debug\poc_algorithm_builder_rust_quick_sort_generated_program_payload.exe`
+Original: [9, 4, 7, 3, 1, 5, 2, 8, 6]
+Sorted:   [1, 2, 3, 4, 5, 6, 7, 8, 9]

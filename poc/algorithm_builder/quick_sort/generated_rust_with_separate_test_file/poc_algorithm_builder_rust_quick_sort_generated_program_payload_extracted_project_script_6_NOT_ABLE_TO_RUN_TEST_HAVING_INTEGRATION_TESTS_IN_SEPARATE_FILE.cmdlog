@@ -1,0 +1,91 @@
+(.venv) C:\git\project_builder\generated>.\poc_algorithm_builder_rust_quick_sort_generated_program_payload_extracted_project_script.cmd
+
+(.venv) C:\git\project_builder\generated>mkdir poc_algorithm_builder_rust_quick_sort
+
+(.venv) C:\git\project_builder\generated>cd poc_algorithm_builder_rust_quick_sort
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo init
+    Creating binary (application) package
+note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>mkdir tests
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs src\main.rs
+        1 file(s) copied.
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs
+        1 file(s) copied.
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo build
+   Compiling poc_algorithm_builder_rust_quick_sort v0.1.0 (C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.20s
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo run
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `target\debug\poc_algorithm_builder_rust_quick_sort.exe`
+Before sorting: [10, 7, 8, 9, 1, 5]
+After sorting:  [1, 5, 7, 8, 9, 10]
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo test
+   Compiling poc_algorithm_builder_rust_quick_sort v0.1.0 (C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort)
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:4:5
+  |
+4 | use super::*;
+  |     ^^^^^ there are too many leading `super` keywords
+
+warning: unused import: `super::*`
+ --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:9:9
+  |
+9 |     use super::*;
+  |         ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+error[E0425]: cannot find function `quick_sort` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:16:9
+   |
+16 |         quick_sort(&mut v);
+   |         ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `quick_sort` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:23:9
+   |
+23 |         quick_sort(&mut v);
+   |         ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `quick_sort` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:30:9
+   |
+30 |         quick_sort(&mut v);
+   |         ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `quick_sort` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:37:9
+   |
+37 |         quick_sort(&mut v);
+   |         ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `quick_sort` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:44:9
+   |
+44 |         quick_sort(&mut v);
+   |         ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `quick_sort` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:51:9
+   |
+51 |         quick_sort(&mut v);
+   |         ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function `partition` in this scope
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:59:9
+   |
+59 |         partition(input)
+   |         ^^^^^^^^^ not found in this scope
+
+Some errors have detailed explanations: E0425, E0433.
+For more information about an error, try `rustc --explain E0425`.
+warning: `poc_algorithm_builder_rust_quick_sort` (test "poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests") generated 1 warning
+error: could not compile `poc_algorithm_builder_rust_quick_sort` (test "poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests") due to 8 previous errors; 1 warning emitted
+warning: build failed, waiting for other jobs to finish...

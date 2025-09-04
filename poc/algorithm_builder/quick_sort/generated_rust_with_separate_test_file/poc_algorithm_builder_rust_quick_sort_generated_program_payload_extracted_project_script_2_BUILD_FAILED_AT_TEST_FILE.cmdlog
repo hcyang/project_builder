@@ -1,0 +1,63 @@
+(.venv) C:\git\project_builder\generated>.\poc_algorithm_builder_rust_quick_sort_generated_program_payload_extracted_project_script.cmd
+
+(.venv) C:\git\project_builder\generated>mkdir poc_algorithm_builder_rust_quick_sort
+
+(.venv) C:\git\project_builder\generated>cd poc_algorithm_builder_rust_quick_sort
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo init --bin
+    Creating binary (application) package
+note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs src\main.rs
+        1 file(s) copied.
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>mkdir tests
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs
+        1 file(s) copied.
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo build
+   Compiling poc_algorithm_builder_rust_quick_sort v0.1.0 (C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.90s
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo run
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `target\debug\poc_algorithm_builder_rust_quick_sort.exe`
+Original array: [34, 7, 23, 32, 5, 62, 32, -4, 0, 99]
+Sorted array:   [-4, 0, 5, 7, 23, 32, 32, 34, 62, 99]
+
+(.venv) C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort>cargo test
+   Compiling poc_algorithm_builder_rust_quick_sort v0.1.0 (C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort)
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `rand`
+   --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:150:13
+    |
+150 |         use rand::seq::SliceRandom;
+    |             ^^^^ use of unresolved module or unlinked crate `rand`
+    |
+    = help: if you wanted to use a crate named `rand`, use `cargo add rand` to add it to your `Cargo.toml`
+
+error[E0432]: unresolved imports `super::partition`, `super::quick_sort`
+  --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:20:17
+   |
+20 |     use super::{partition, quick_sort};
+   |                 ^^^^^^^^^  ^^^^^^^^^^ no `quick_sort` in the root
+   |                 |
+   |                 no `partition` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `rand`
+   --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:152:23
+    |
+152 |         let mut rng = rand::thread_rng();
+    |                       ^^^^ use of unresolved module or unlinked crate `rand`
+    |
+    = help: if you wanted to use a crate named `rand`, use `cargo add rand` to add it to your `Cargo.toml`
+
+error[E0599]: no method named `shuffle` found for struct `Vec<i32>` in the current scope
+   --> tests\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs:153:13
+    |
+153 |         arr.shuffle(&mut rng);
+    |             ^^^^^^^ method not found in `Vec<i32>`
+
+Some errors have detailed explanations: E0432, E0433, E0599.
+For more information about an error, try `rustc --explain E0432`.
+error: could not compile `poc_algorithm_builder_rust_quick_sort` (test "poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests") due to 4 previous errors

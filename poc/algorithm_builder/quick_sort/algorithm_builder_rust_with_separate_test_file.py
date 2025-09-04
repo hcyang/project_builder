@@ -1,7 +1,14 @@
 
 """
+In this POC, we demonstrate how to generate a complete Rust program
+and its corresponding build script using OpenAI's API.
+Though the main program generation runs successfully, we need to ensure
+that the generated test cases are also valid and cover all edge cases.
+But, there is some difficulty to create those test cases in
+separate files, build them, or run them successfully.
+
 An end-to-end test program for generating a complete
-Rsut program and build script.
+Rust program and build script.
 """
 import asyncio
 import os
@@ -24,7 +31,7 @@ async def main_test(write_to_file: bool = True):
     # ------------------------------------------------------------------------
     generative_model_configuration = \
         OpenaiAzureFoundryUtility.get_generative_model_configuration()
-    print(generative_model_configuration)
+    # print(generative_model_configuration)
     generative_model_parameters = \
         OpenaiAzureFoundryUtility.get_generative_model_parameters()
     bearer_token_provider = \
@@ -48,8 +55,8 @@ async def main_test(write_to_file: bool = True):
                 generative_model_configuration,
                 generative_model_parameters,
                 prompt)
-    print('---- DEBUGGING-generative_ai_completion ----', \
-          generative_ai_completion)
+    # print('---- DEBUGGING-generative_ai_completion ----', \
+    #       generative_ai_completion)
     generated_program_payload = \
         generative_ai_completion.choices[0].message.content
     output_file_full_path = os.path.join(
@@ -91,8 +98,8 @@ async def main_test(write_to_file: bool = True):
             generative_model_configuration,
             generative_model_parameters,
             prompt)
-    print('---- DEBUGGING-generative_ai_completion ----', \
-          generative_ai_completion)
+    # print('---- DEBUGGING-generative_ai_completion ----', \
+    #       generative_ai_completion)
     generated_program_payload = \
         generative_ai_completion.choices[0].message.content
     output_file_full_path = os.path.join(
@@ -110,6 +117,8 @@ async def main_test(write_to_file: bool = True):
     # ------------------------------------------------------------------------
     prompt = 'Generate unit tests for the Rust program below.' \
         'The tests should cover every functions in the program.' \
+        'The tests should also be compilable and include all necessary ' \
+        'imports.' \
         'In the comment, call the program ' \
         '"poc_algorithm_builder_rust_quick_sort_' \
         'generated_program_payload_tests.rs". ' \
@@ -121,8 +130,8 @@ async def main_test(write_to_file: bool = True):
             generative_model_configuration,
             generative_model_parameters,
             prompt)
-    print('---- DEBUGGING-generative_ai_completion ----', \
-          generative_ai_completion)
+    # print('---- DEBUGGING-generative_ai_completion ----', \
+    #       generative_ai_completion)
     generated_program_payload = \
         generative_ai_completion.choices[0].message.content
     output_file_full_path = os.path.join(
@@ -154,8 +163,8 @@ async def main_test(write_to_file: bool = True):
             generative_model_configuration,
             generative_model_parameters,
             prompt)
-    print('---- DEBUGGING-generative_ai_completion ----', \
-          generative_ai_completion)
+    # print('---- DEBUGGING-generative_ai_completion ----', \
+    #       generative_ai_completion)
     generated_program_payload = \
         generative_ai_completion.choices[0].message.content
     output_file_full_path = os.path.join(
@@ -181,7 +190,8 @@ async def main_test(write_to_file: bool = True):
         '"poc_algorithm_builder_rust_quick_sort_generated_program' \
         '_payload_tests.rs". ' \
         'The script should include commands to create the necessary ' \
-        'directory structure, copy the generated Rust files into place, ' \
+        'directory structure, src and src/tests, copy the generated Rust ' \
+        'files into place, ' \
         'and run the tests using Cargo.' \
         'Only output the commands without any explanations, ' \
         'additional text, or delimiters.'
@@ -192,8 +202,8 @@ async def main_test(write_to_file: bool = True):
                 generative_model_configuration,
                 generative_model_parameters,
                 prompt)
-    print('---- DEBUGGING-generative_ai_completion ----', \
-          generative_ai_completion)
+    # print('---- DEBUGGING-generative_ai_completion ----', \
+    #       generative_ai_completion)
     generated_program_payload = \
         generative_ai_completion.choices[0].message.content
     output_file_full_path = os.path.join(

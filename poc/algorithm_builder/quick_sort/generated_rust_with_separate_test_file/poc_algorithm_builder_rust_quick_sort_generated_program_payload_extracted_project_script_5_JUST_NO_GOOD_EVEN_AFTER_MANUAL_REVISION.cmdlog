@@ -1,0 +1,41 @@
+(.venv) c:\git\project_builder>cd generated
+
+(.venv) c:\git\project_builder\generated>.\poc_algorithm_builder_rust_quick_sort_generated_program_payload_extracted_project_script.cmd
+
+(.venv) c:\git\project_builder\generated>mkdir poc_algorithm_builder_rust_quick_sort_generated_program
+
+(.venv) c:\git\project_builder\generated>cd poc_algorithm_builder_rust_quick_sort_generated_program
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>cargo init     
+    Creating binary (application) package
+note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>mkdir src\tests
+
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs src\
+        1 file(s) copied.
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs src\tests\
+        1 file(s) copied.
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>echo 'mod poc_algorithm_builder_rust_quick_sort_generated_program_payload;'  1>src\lib.rs
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>echo 'mod tests {'  1>src\tests\mod.rs
+
+uick_sort_generated_program_payload_tests;'  1>>src\tests\mod.rs
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>echo '}'  1>>src\tests\mod.rs      
+
+(.venv) c:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program>cargo test
+   Compiling poc_algorithm_builder_rust_quick_sort_generated_program v0.1.0 (C:\git\project_builder\generated\poc_algorithm_builder_rust_quick_sort_generated_program)
+error[E0762]: unterminated character literal
+ --> src\lib.rs:1:70
+  |
+1 | 'mod poc_algorithm_builder_rust_quick_sort_generated_program_payload;'
+  |                                                                      ^^
+
+For more information about this error, try `rustc --explain E0762`.
+error: could not compile `poc_algorithm_builder_rust_quick_sort_generated_program` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `poc_algorithm_builder_rust_quick_sort_generated_program` (lib test) due to 1 previous error

@@ -1,0 +1,9 @@
+mkdir poc_algorithm_builder_rust_quick_sort_generated_program_payload
+cd poc_algorithm_builder_rust_quick_sort_generated_program_payload
+cargo init
+mkdir src\tests
+copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs src\
+copy ..\poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs src\tests\
+cargo build
+cargo run --bin poc_algorithm_builder_rust_quick_sort_generated_program_payload
+cargo test

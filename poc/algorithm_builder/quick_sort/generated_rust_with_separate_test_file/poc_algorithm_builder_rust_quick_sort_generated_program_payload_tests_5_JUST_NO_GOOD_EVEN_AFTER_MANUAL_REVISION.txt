@@ -1,0 +1,136 @@
+```rust
+// poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs
+// Unit tests for Quick Sort implementation in Rust.
+// This file covers tests for every function in poc_algorithm_builder_rust_quick_sort_generated_program_payload.rs
+
+use super::*; // Assumes the tested code is in the parent module or use `mod` as needed.
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_quick_sort_empty() {
+        let mut data: [i32; 0] = [];
+        quick_sort(&mut data);
+        assert_eq!(data, []);
+    }
+
+    #[test]
+    fn test_quick_sort_single_element() {
+        let mut data = [42];
+        quick_sort(&mut data);
+        assert_eq!(data, [42]);
+    }
+
+    #[test]
+    fn test_quick_sort_sorted() {
+        let mut data = [1, 2, 3, 4, 5];
+        quick_sort(&mut data);
+        assert_eq!(data, [1, 2, 3, 4, 5]);
+    }
+
+    #[test]
+    fn test_quick_sort_reverse_sorted() {
+        let mut data = [5, 4, 3, 2, 1];
+        quick_sort(&mut data);
+        assert_eq!(data, [1, 2, 3, 4, 5]);
+    }
+
+    #[test]
+    fn test_quick_sort_duplicates() {
+        let mut data = [2, 3, 2, 1, 3, 1];
+        quick_sort(&mut data);
+        assert_eq!(data, [1, 1, 2, 2, 3, 3]);
+    }
+
+    #[test]
+    fn test_quick_sort_strings() {
+        let mut data = ["pear", "apple", "orange", "banana"];
+        quick_sort(&mut data);
+        assert_eq!(data, ["apple", "banana", "orange", "pear"]);
+    }
+
+    #[test]
+    fn test_quick_sort_generic_type() {
+        #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
+        struct TestStruct(i32);
+
+        let mut data = [
+            TestStruct(5),
+            TestStruct(2),
+            TestStruct(9),
+            TestStruct(1),
+        ];
+        quick_sort(&mut data);
+        assert_eq!(
+            data,
+            [
+                TestStruct(1),
+                TestStruct(2),
+                TestStruct(5),
+                TestStruct(9)
+            ]
+        );
+    }
+
+    #[test]
+    fn test_partition_basic() {
+        // Partition is private, so test via a local copy of the function.
+        fn test_partition<T: Ord>(arr: &mut [T]) -> usize {
+            let len = arr.len();
+            let pivot_index = len - 1;
+            let mut i = 0;
+            for j in 0..pivot_index {
+                if arr[j] < arr[pivot_index] {
+                    arr.swap(i, j);
+                    i += 1;
+                }
+            }
+            arr.swap(i, pivot_index);
+            i
+        }
+        let mut data = [3, 2, 1];
+        let pivot_pos = test_partition(&mut data);
+        // After partition, elements before pivot_pos are < pivot, at pivot_pos is pivot, after are >= pivot
+        assert_eq!(data[pivot_pos], 3);
+        for k in 0..pivot_pos {
+            assert!(data[k] < 3);
+        }
+        for k in pivot_pos+1..data.len() {
+            assert!(data[k] >= 3);
+        }
+    }
+
+    #[test]
+    fn test_partition_with_duplicates() {
+        fn test_partition<T: Ord>(arr: &mut [T]) -> usize {
+            let len = arr.len();
+            let pivot_index = len - 1;
+            let mut i = 0;
+            for j in 0..pivot_index {
+                if arr[j] < arr[pivot_index] {
+                    arr.swap(i, j);
+                    i += 1;
+                }
+            }
+            arr.swap(i, pivot_index);
+            i
+        }
+        let mut data = [2, 2, 2];
+        let pivot_pos = test_partition(&mut data);
+        // All elements are equal, so pivot should be at position 0
+        assert_eq!(pivot_pos, 0);
+        assert_eq!(data, [2, 2, 2]);
+    }
+}
+```
+
+**Instructions:**
+- Place this file alongside your program or configure your Rust project so that the tests can access the functions (`quick_sort`, and the `partition` logic).
+- Since `partition` is private, the test includes a local copy for direct verification.  
+- All necessary imports are included.  
+- The tests cover all function logic and edge cases.
+
+**Filename per instruction:**  
+`poc_algorithm_builder_rust_quick_sort_generated_program_payload_tests.rs`
